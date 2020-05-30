@@ -1,5 +1,5 @@
 {
-  "name": "roots/bedrock",
+  "name": "jcchikikomori/bedrock-blog",
   "type": "project",
   "license": "MIT",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
@@ -17,7 +17,12 @@
     }
   ],
   "keywords": [
-    "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
+    "bedrock",
+    "composer",
+    "roots",
+    "wordpress",
+    "wp",
+    "wp-config"
   ],
   "support": {
     "issues": "https://github.com/roots/bedrock/issues",
@@ -27,11 +32,16 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:jcchikikomori/jcc-blog-2020-theme.git"
     }
   ],
   "require": {
     "php": ">=7.1",
     "composer/installers": "^1.7",
+    "jcchikikomori/jcc-blog-2020-theme": ">=0.1.0",
     "oscarotero/env": "^1.2.0",
     "roots/wordpress": "5.2.3",
     "roots/wp-config": "1.0.0",
@@ -46,16 +56,25 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "preferred-install": {
+      "jcchikikomori/jcc-blog-2020-theme": "source",
+      "*": "dist"
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
