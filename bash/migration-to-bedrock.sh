@@ -6,6 +6,8 @@ echo "Make sure your WP installation is complete or already restored from backup
 echo ""
 read -n 1 -s -r -p "Press any key to continue..."
 
+echo ""
+echo ""
 echo "Checking WP-CLI version..."
 wp --version
 
@@ -47,8 +49,8 @@ wp search-replace 'https://jccorsanes.site' 'https://bedrock-blog.test'
 echo "Exporting production dump...                        (MIGRATING  90%)"
 wp db export blog-production.sql
 
-echo "Reverting changes after export...                   (MIGRATING  95%)"
-wp db import blog-local.sql
+# echo "Reverting changes after export...                   (MIGRATING  95%)"
+# wp db import blog-local.sql
 
 echo "Migration complete!                                 (MIGRATING 100%)"
 
