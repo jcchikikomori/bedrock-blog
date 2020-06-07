@@ -47,8 +47,16 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0",
+    "wpackagist-plugin/ad-inserter": "^2.6",
+    "wpackagist-plugin/adunblocker": "^1.0",
+    "wpackagist-plugin/akismet": "^4.1",
+    "wpackagist-plugin/cf7-conditional-fields": "^1.8",
+    "wpackagist-plugin/cmp-coming-soon-maintenance": "^3.7",
+    "wpackagist-plugin/contact-form-7": "^5.1",
     "wpackagist-plugin/disable-url-autocorrect-guessing": "^1.1",
-    "wpackagist-plugin/litespeed-cache": "2.9.8.6"
+    "wpackagist-plugin/elementor": "^2.9",
+    "wpackagist-plugin/litespeed-cache": "2.9.8.6",
+    "wpackagist-theme/twentytwenty": "^1.3"
   },
   "require-dev": {
     "deployer/recipes": "^6.2",
