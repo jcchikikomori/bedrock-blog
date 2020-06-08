@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cee8657774015d1ba3b3f1a4dafef1a3",
+    "content-hash": "bcc8432496553f29808a3a856ff26927",
     "packages": [
         {
             "name": "composer/installers",
@@ -756,6 +756,42 @@
             "homepage": "https://wordpress.org/plugins/elementor/"
         },
         {
+            "name": "wpackagist-plugin/http-headers",
+            "version": "1.15.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/http-headers/",
+                "reference": "tags/1.15.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/http-headers.1.15.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/http-headers/"
+        },
+        {
+            "name": "wpackagist-plugin/insert-headers-and-footers",
+            "version": "1.4.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/insert-headers-and-footers/",
+                "reference": "tags/1.4.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/insert-headers-and-footers.1.4.5.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/insert-headers-and-footers/"
+        },
+        {
             "name": "wpackagist-plugin/litespeed-cache",
             "version": "2.9.8.6",
             "source": {
@@ -772,6 +808,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/litespeed-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/ninjafirewall",
+            "version": "4.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/ninjafirewall/",
+                "reference": "tags/4.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ninjafirewall.4.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ninjafirewall/"
         },
         {
             "name": "wpackagist-theme/twentytwenty",
