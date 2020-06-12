@@ -1,0 +1,17 @@
+# servers.yml
+
+.base: &base
+  user: john
+  branch: master
+  theme_name: wp-chatgenie
+  deploy_path: "/var/www/html"
+
+production-blog:
+  <<: *base
+  stage: production
+  branch: master
+
+development-blog:
+  <<: *base
+  stage: staging
+  branch: develop
