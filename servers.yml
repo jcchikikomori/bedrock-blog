@@ -2,16 +2,12 @@
 
 .base: &base
   user: john
-  branch: master
+  stage: staging
+  branch: develop
   theme_name: twentytwenty
   deploy_path: "/var/www/html"
 
 production-blog:
   <<: *base
   stage: production
-  branch: master
-
-development-blog:
-  <<: *base
-  stage: staging
   branch: develop

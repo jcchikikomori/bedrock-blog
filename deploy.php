@@ -55,7 +55,7 @@ set('wp-recipes', [
  */
 
 // Bedrock project repository
-set('repository', 'git@bitbucket.org:gorated/bedrock-chatgenie.git');
+set('repository', 'git@github.com:jcchikikomori/bedrock-blog.git');
 
 // Bedrock shared files
 // Shared files/dirs between deploys
