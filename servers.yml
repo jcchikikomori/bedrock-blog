@@ -1,0 +1,13 @@
+# servers.yml
+
+.base: &base
+  user: john
+  stage: staging
+  branch: develop
+  theme_name: twentytwenty
+  deploy_path: "/var/www/html"
+
+production-blog:
+  <<: *base
+  stage: production
+  branch: develop
