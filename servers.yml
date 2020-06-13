@@ -3,7 +3,7 @@
 .base: &base
   user: john
   branch: master
-  theme_name: wp-chatgenie
+  theme_name: twentytwenty
   deploy_path: "/var/www/html"
 
 production-blog:
