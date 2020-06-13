@@ -290,7 +290,7 @@ task('deploy', [
     'deploy:symlink',
     'deploy:unlock',
     'php:ini',
-    'deploy:theme:public',
+    // 'deploy:theme:public',
     'cleanup',
     'nginx:reload',
     'php-fpm:reload',
