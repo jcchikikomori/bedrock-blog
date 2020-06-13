@@ -95,7 +95,7 @@ set('cloudflare', [
 
 task('setup:vars', function () {
     // http user
-    $user = "ubuntu";
+    $user = "john";
 
     set('http_user', $user);
     set('http_group', $user);
