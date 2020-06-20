@@ -48,7 +48,7 @@
     "jcchikikomori/jcc-blog-2020-theme": ">=0.1.0",
     "jcchikikomori/deployer-wp-recipes": "^0.1.0",
     "oscarotero/env": "^1.2.0",
-    "roots/wordpress": "5.2.3",
+    "roots/wordpress": "5.4.1",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "vlucas/phpdotenv": "^3.4.0",
