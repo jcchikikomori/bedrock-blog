@@ -45,7 +45,7 @@
   "require": {
     "php": ">=7.1",
     "composer/installers": "^1.7",
-    "jcchikikomori/jcc-blog-2020-theme": "dev-feature/initial-structure",
+    "jcchikikomori/jcc-blog-2020-theme": "^0.2.5",
     "jcchikikomori/deployer-wp-recipes": "^0.1.0",
     "oscarotero/env": "^1.2.0",
     "roots/wordpress": "5.4.1",
