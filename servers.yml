@@ -10,4 +10,4 @@
 production-blog:
   <<: *base
   stage: production
-  branch: develop
+  branch: master

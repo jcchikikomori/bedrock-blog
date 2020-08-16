@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ee07765be9d04fc230219e17519f72a",
+    "content-hash": "e06eb4496158b4c2ae4f74401ed3137b",
     "packages": [
         {
             "name": "composer/installers",
@@ -178,16 +178,16 @@
         },
         {
             "name": "jcchikikomori/jcc-blog-2020-theme",
-            "version": "dev-feature/initial-structure",
+            "version": "0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jcchikikomori/jcc-blog-2020-theme.git",
-                "reference": "d927d0fadafb4b7c3b2c51a4ad0919e17009adc6"
+                "reference": "c13dbeb33849a27902f2872c0bcda62692f7c1f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jcchikikomori/jcc-blog-2020-theme/zipball/d927d0fadafb4b7c3b2c51a4ad0919e17009adc6",
-                "reference": "d927d0fadafb4b7c3b2c51a4ad0919e17009adc6",
+                "url": "https://api.github.com/repos/jcchikikomori/jcc-blog-2020-theme/zipball/c13dbeb33849a27902f2872c0bcda62692f7c1f7",
+                "reference": "c13dbeb33849a27902f2872c0bcda62692f7c1f7",
                 "shasum": ""
             },
             "require": {
@@ -221,10 +221,10 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/jcchikikomori/jcc-blog-2020-theme/tree/feature/initial-structure",
+                "source": "https://github.com/jcchikikomori/jcc-blog-2020-theme/tree/0.2.5",
                 "issues": "https://github.com/jcchikikomori/jcc-blog-2020-theme/issues"
             },
-            "time": "2020-08-16T11:01:27+00:00"
+            "time": "2020-08-16T11:27:20+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -1867,7 +1867,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jcchikikomori/jcc-blog-2020-theme": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
