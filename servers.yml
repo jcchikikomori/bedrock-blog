@@ -1,0 +1,13 @@
+# servers.yml
+
+.base: &base
+  user: john
+  stage: staging
+  branch: develop
+  theme_name: jcc-blog-2020-theme
+  deploy_path: "/var/www/html"
+
+production-blog:
+  <<: *base
+  stage: production
+  branch: master
