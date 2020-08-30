@@ -1,7 +1,7 @@
 set :application, 'jccorsanes.site'
 set :repo_url, 'git@github.com:jcchikikomori/bedrock-blog.git'
 
-set :branch, 'feature/capistrano'
+set :branch, 'master'
 
 set :deploy_to, '/var/www/html'
 
@@ -9,7 +9,8 @@ set :log_level, :info
 set :pty, true
 
 set :linked_dirs, %w{media web/app/updraft web/app/uploads}
-set :linked_files, %w{.env web/.user.ini web/app/advanced-cache.php}
+# set :linked_files, %w{.env web/.user.ini web/app/advanced-cache.php}
+set :linked_files, %w{.env}
 
 set :themes_path, "#{release_path}/web/app/themes"
 set :theme_path, "#{fetch(:themes_path)}/jcc-blog-2020-theme"
