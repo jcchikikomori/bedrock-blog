@@ -11,12 +11,19 @@ set :pty, true
 set :linked_dirs, %w{media web/app}
 set :linked_files, %w{.env web/.user.ini}
 
-set :theme_path, "#{release_path}/app/themes/jcc-blog-2020-theme"
+set :theme_path, "#{release_path}/web/app/themes/jcc-blog-2020-theme"
 
 set :npm_target_path, fetch(:theme_path)
 set :grunt_target_path, fetch(:theme_path)
 
 namespace :deploy do
+
+  desc 'List themes'
+  task :list_themes do
+    on roles(:app) do
+      execute "ls -l #{release_path}/web/app/themes"
+    end
+  end
 
   desc 'Restart application'
   task :restart do
