@@ -34,4 +34,5 @@ namespace :deploy do
 
 end
 
-before 'deploy:updated', 'grunt'
+# before 'deploy:updated', 'grunt'
+after 'deploy', 'deploy:restart'
