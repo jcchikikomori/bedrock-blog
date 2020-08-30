@@ -1,3 +1,5 @@
+# JCC Blog v0.1.1
+
 # [Bedrock](https://roots.io/bedrock/)
 
 [![Packagist](https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square)](https://packagist.org/packages/roots/bedrock)
