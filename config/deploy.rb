@@ -18,6 +18,9 @@ set :muplugins_path, "#{release_path}/web/app/mu-plugins"
 # set :npm_target_path, fetch(:theme_path)
 # set :grunt_target_path, fetch(:theme_path)
 
+# Custom NPM via command map
+SSHKit.config.command_map[:npm] = '/snap/bin/npm'
+
 namespace :deploy do
 
   desc 'List themes'
