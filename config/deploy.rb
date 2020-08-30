@@ -8,13 +8,15 @@ set :deploy_to, '/var/www/html'
 set :log_level, :info
 set :pty, true
 
-set :linked_dirs, %w{media web/app/cache web/app/mu-plugins web/app/nfwlog web/app/themes web/app/updraft web/app/uploads web/app/w3tc-config}
+set :linked_dirs, %w{media web/app/updraft web/app/uploads}
 set :linked_files, %w{.env web/.user.ini web/app/advanced-cache.php}
 
-set :theme_path, "#{release_path}/web/app/themes/jcc-blog-2020-theme"
+set :themes_path, "#{release_path}/web/app/themes/"
+set :plugins_path, "#{release_path}/web/app/plugins"
+set :muplugins_path, "#{release_path}/web/app/mu-plugins"
 
-set :npm_target_path, fetch(:theme_path)
-set :grunt_target_path, fetch(:theme_path)
+# set :npm_target_path, fetch(:theme_path)
+# set :grunt_target_path, fetch(:theme_path)
 
 namespace :deploy do
 
@@ -32,15 +34,35 @@ namespace :deploy do
     end
   end
 
+  desc 'Build needed directories'
+  task :build_dirs do
+    on roles(:app) do
+      execute "mkdir -p #{fetch(:themes_path)}"
+      execute "mkdir -p #{fetch(:plugins_path)}"
+      execute "mkdir -p #{fetch(:muplugins_path)}"
+    end
+  end
+
   desc 'Build theme'
   task :build_theme do
     on roles(:app) do
-      execute "cd #{fetch(:theme_path)} && npm install && npm run prod"
+      execute "cd #{fetch(:themes_path)}/jcc-blog-2020-theme && npm install && npm run prod"
+    end
+  end
+
+  desc 'Fix directory permissions'
+  task :chown_dirs do
+    on roles(:app) do
+      execute "sudo chown -R www-data:www-data #{fetch(:themes_path)}"
+      execute "sudo chown -R www-data:www-data #{fetch(:plugins_path)}"
+      execute "sudo chown -R www-data:www-data #{fetch(:muplugins_path)}"
     end
   end
 
 end
 
-# before 'deploy:updated', 'grunt'
+# custom setups
+before 'composer:run', 'deploy:build_dirs'
 after 'deploy', 'deploy:build_theme'
-after 'deploy:build_theme', 'deploy:restart'
+after 'deploy:build_theme', 'deploy:chown_dirs'
+after 'deploy:chown_dirs', 'deploy:restart'
