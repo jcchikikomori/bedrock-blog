@@ -18,6 +18,12 @@ set :muplugins_path, "#{release_path}/web/app/mu-plugins"
 # set :npm_target_path, fetch(:theme_path)
 # set :grunt_target_path, fetch(:theme_path)
 
+# Composer
+set :composer_install_flags, '--no-dev --no-interaction --quiet --optimize-autoloader'
+set :composer_roles, :all
+set :composer_working_dir, -> { fetch(:release_path) }
+set :composer_dump_autoload_flags, '--optimize'
+
 # Custom NPM via command map
 SSHKit.config.command_map[:npm] = '/snap/bin/npm'
 
