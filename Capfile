@@ -24,7 +24,7 @@ require 'capistrano/deploy'
 
 # Custom tasks
 require 'capistrano/composer'
-require 'capistrano/npm'
+# require 'capistrano/npm'
 require 'capistrano/grunt'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
