@@ -1,0 +1,42 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: Deploy with Capistrano
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.2
+    - name: Install dependencies
+      run: bundle install
+    # - name: Run tests
+      # run: bundle exec rake
+    - name: Capistrano deploy
+      # You may pin to the exact commit or the version.
+      # uses: miloserdow/capistrano-deploy@a1ed9ca211c7f0e9fbc6bcbdbd9844b33be78897
+      uses: miloserdow/capistrano-deploy@v2.1
+      with:
+        # Environment where deploy is to be performed to
+        target: production
+        # Deployment key used for decryption of SSH RSA private key
+        deploy_key: ${{ secrets.DEPLOY_ENC_KEY }}
+        # Path to SSH private key encrypted with deploy_key
+        # enc_rsa_key_pth: # default is config/deploy_id_rsa_enc
+        # The directory from which to run the deploy command
