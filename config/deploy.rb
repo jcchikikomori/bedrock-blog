@@ -1,7 +1,7 @@
 set :application, 'jccorsanes.site'
 set :repo_url, 'git@github.com:jcchikikomori/bedrock-blog.git'
 
-set :branch, :master
+set :branch, 'feature/capistrano'
 
 set :deploy_to, '/var/www/html'
 
@@ -12,20 +12,17 @@ set :linked_dirs, %w{media web/app/updraft web/app/uploads}
 set :linked_files, %w{.env web/.user.ini web/app/advanced-cache.php}
 
 set :themes_path, "#{release_path}/web/app/themes"
+set :theme_path, "#{fetch(:themes_path)}/jcc-blog-2020-theme"
 set :plugins_path, "#{release_path}/web/app/plugins"
 set :muplugins_path, "#{release_path}/web/app/mu-plugins"
+
+set :web_path, "#{release_path}/web"
 
 # set :npm_target_path, fetch(:theme_path)
 # set :grunt_target_path, fetch(:theme_path)
 
-# Composer
-set :composer_install_flags, '--no-dev --no-interaction --quiet --optimize-autoloader'
-set :composer_roles, :all
-set :composer_working_dir, -> { fetch(:release_path) }
-set :composer_dump_autoload_flags, '--optimize'
-
 # Custom NPM via command map
-SSHKit.config.command_map[:npm] = '/snap/bin/npm'
+# SSHKit.config.command_map[:npm] = '/snap/bin/npm'
 
 namespace :deploy do
 
@@ -55,13 +52,24 @@ namespace :deploy do
   desc 'Build theme'
   task :build_theme do
     on roles(:app) do
-      execute "cd #{fetch(:themes_path)}/jcc-blog-2020-theme && npm install && npm run prod"
+      within fetch(:theme_path) do
+        execute :npm, "install"
+        execute :npm, "run prod"
+      end
     end
   end
 
-  desc 'Fix directory permissions'
+  desc 'Fix permissions'
   task :chown_dirs do
     on roles(:app) do
+      execute "sudo chown www-data:www-data #{release_path}"
+      execute "sudo chown www-data:www-data #{release_path}/config"
+      execute "sudo chown -R www-data:www-data #{release_path}/config/environments"
+      execute "sudo chown www-data:www-data #{release_path}/config/application.php"
+      execute "sudo chown www-data:www-data #{fetch(:web_path)}/index.php"
+      execute "sudo chown www-data:www-data #{fetch(:web_path)}/wp-config.php"
+      execute "sudo chown www-data:www-data #{fetch(:web_path)}/app"
+      execute "sudo chown -R www-data:www-data #{fetch(:web_path)}/wp"
       execute "sudo chown -R www-data:www-data #{fetch(:themes_path)}"
       execute "sudo chown -R www-data:www-data #{fetch(:plugins_path)}"
       execute "sudo chown -R www-data:www-data #{fetch(:muplugins_path)}"
@@ -72,6 +80,7 @@ end
 
 # custom setups
 before 'composer:run', 'deploy:build_dirs'
+# before 'deploy:chown_dirs', 'deploy:set_permissions:chown'
 after 'deploy', 'deploy:build_theme'
 after 'deploy:build_theme', 'deploy:chown_dirs'
 after 'deploy:chown_dirs', 'deploy:restart'
